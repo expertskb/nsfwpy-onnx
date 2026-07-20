@@ -30,7 +30,7 @@ pip install nsfwpy
 
 Or install locally for development:
 ```bash
-git clone https://github.com/your-username/nsfwpy.git
+git clone https://github.com/expertskb/nsfwpy.git
 cd nsfwpy
 python3.14 -m venv .venv
 source .venv/bin/activate
