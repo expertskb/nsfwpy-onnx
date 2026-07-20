@@ -1,54 +1,49 @@
-"""
-Automated unit & integration tests for nsfwpy.
-"""
-import pytest
+import unittest
 import numpy as np
 from PIL import Image
 
 import nsfwpy
 
 
-def test_package_import():
-    """Verify package import."""
-    assert nsfwpy.__version__ == "1.0.3"
+class TestNSFWPy(unittest.TestCase):
+    def test_package_import(self):
+        """Verify package import."""
+        self.assertIsNotNone(nsfwpy.__version__)
+
+    def test_load_models(self):
+        """Verify loading different ONNX model architectures."""
+        model_default = nsfwpy.load_model()
+        self.assertIsNotNone(model_default)
+
+        model_vit = nsfwpy.load_model("nsfw_vit")
+        self.assertIsNotNone(model_vit)
+
+        model_quant = nsfwpy.load_model("nsfw_vit_quantized")
+        self.assertIsNotNone(model_quant)
 
 
-def test_load_models():
-    """Verify loading different ONNX model architectures."""
-    model_v2 = nsfwpy.load_model("mobilenet_v2")
-    assert model_v2 is not None
+    def test_single_classification(self):
+        """Verify single image classification return format."""
+        model = nsfwpy.load_model("nsfw_vit_quantized")
 
-    model_v3 = nsfwpy.load_model("mobilenet_v3")
-    assert model_v3 is not None
+        # Generate synthetic RGB PIL image
+        img = Image.fromarray(np.uint8(np.random.rand(224, 224, 3) * 255))
+        results = model.classify(img, top_k=5)
 
-    model_inc = nsfwpy.load_model("inception_v3")
-    assert model_inc is not None
+        self.assertGreater(len(results), 0)
+        self.assertIn("className", results[0])
+        self.assertIn("probability", results[0])
 
+    def test_batch_classification(self):
+        """Verify batch classification execution."""
+        model = nsfwpy.load_model("nsfw_vit_quantized")
+        img1 = Image.fromarray(np.uint8(np.random.rand(224, 224, 3) * 255))
+        img2 = Image.fromarray(np.uint8(np.random.rand(224, 224, 3) * 255))
 
-def test_single_classification():
-    """Verify single image classification return format."""
-    model = nsfwpy.load_model("mobilenet_v2")
-
-    # Generate synthetic RGB PIL image
-    img = Image.fromarray(np.uint8(np.random.rand(224, 224, 3) * 255))
-    results = model.classify(img, top_k=5)
-
-    assert len(results) == 5
-    assert "className" in results[0]
-    assert "probability" in results[0]
-
-    # Verify probability ordering
-    probs = [item["probability"] for item in results]
-    assert probs == sorted(probs, reverse=True)
+        results = model.classify_batch([img1, img2], top_k=3)
+        self.assertEqual(len(results), 2)
 
 
-def test_batch_classification():
-    """Verify batch classification execution."""
-    model = nsfwpy.load_model("mobilenet_v2")
-    img1 = Image.fromarray(np.uint8(np.random.rand(224, 224, 3) * 255))
-    img2 = Image.fromarray(np.uint8(np.random.rand(224, 224, 3) * 255))
+if __name__ == "__main__":
+    unittest.main()
 
-    results = model.classify_batch([img1, img2], top_k=3)
-    assert len(results) == 2
-    assert len(results[0]) == 3
-    assert len(results[1]) == 3

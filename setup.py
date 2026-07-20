@@ -1,9 +1,15 @@
+from pathlib import Path
 from setuptools import setup, find_packages
+
+this_directory = Path(__file__).parent
+long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="nsfwpy-onnx",
-    version="1.0.6",
+    version="1.1.0",
     description="Python 3.14 CPU-optimized ultra-lightweight NSFWPY image classification library",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
     author="expertskb",
     url="https://github.com/expertskb/nsfwpy-onnx",
     packages=find_packages(),
