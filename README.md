@@ -1,6 +1,7 @@
-# NSFWPY 🔥
+# NSFWPY 🔥 (`nsfwpy-onnx`)
 
-[![PyPI Version](https://img.shields.io/pypi/v/nsfwpy.svg?color=blue)](https://pypi.org/project/nsfwpy/)
+[![PyPI Version](https://img.shields.io/pypi/v/nsfwpy-onnx.svg?color=blue)](https://pypi.org/project/nsfwpy-onnx/)
+[![GitHub Repo](https://img.shields.io/badge/GitHub-expertskb%2Fnsfwpy--onnx-blue?logo=github)](https://github.com/expertskb/nsfwpy-onnx)
 [![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.14-blue)](https://www.python.org/)
 [![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 [![Hugging Face](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-expertskb%2Fnsfwpy-yellow)](https://huggingface.co/expertskb/nsfwpy)
@@ -23,15 +24,17 @@ Classify images into 5 canonical NSFW categories (**Drawing**, **Hentai**, **Neu
 
 ## 📥 Installation
 
+Install directly from **PyPI**:
+
 ```bash
-# Install from PyPI
-pip install nsfwpy
+pip install nsfwpy-onnx
 ```
 
-Or install locally for development:
+Or install from GitHub:
+
 ```bash
-git clone https://github.com/expertskb/nsfwpy.git
-cd nsfwpy
+git clone https://github.com/expertskb/nsfwpy-onnx.git
+cd nsfwpy-onnx
 python3.14 -m venv .venv
 source .venv/bin/activate
 pip install -e .
@@ -94,11 +97,11 @@ nsfwpy classify sample.jpg --model inception_v3
 
 Professional production-ready scripts are included under [`examples/`](file:///home/shakib/Workspace/IMAGE%20DETECTOR/examples):
 
-- **[`examples/01_basic_classification.py`](examples/01_basic_classification.py)**: Local image classification.
-- **[`examples/02_url_classification.py`](examples/02_url_classification.py)**: Remote image URL classification.
-- **[`examples/03_batch_classification.py`](examples/03_batch_classification.py)**: High-throughput batch benchmarking.
-- **[`examples/04_pil_and_bytes_classification.py`](examples/04_pil_and_bytes_classification.py)**: In-memory PIL and bytes buffer processing.
-- **[`examples/05_custom_model_and_threading.py`](examples/05_custom_model_and_threading.py)**: Model backbones & ONNX CPU thread tuning.
+- **[`examples/01_basic_classification.py`](file:///home/shakib/Workspace/IMAGE%20DETECTOR/examples/01_basic_classification.py)**: Local image classification.
+- **[`examples/02_url_classification.py`](file:///home/shakib/Workspace/IMAGE%20DETECTOR/examples/02_url_classification.py)**: Remote image URL classification.
+- **[`examples/03_batch_classification.py`](file:///home/shakib/Workspace/IMAGE%20DETECTOR/examples/03_batch_classification.py)**: High-throughput batch benchmarking.
+- **[`examples/04_pil_and_bytes_classification.py`](file:///home/shakib/Workspace/IMAGE%20DETECTOR/examples/04_pil_and_bytes_classification.py)**: In-memory PIL and bytes buffer processing.
+- **[`examples/05_custom_model_and_threading.py`](file:///home/shakib/Workspace/IMAGE%20DETECTOR/examples/05_custom_model_and_threading.py)**: Model backbones & ONNX CPU thread tuning.
 
 Run any example using:
 ```bash

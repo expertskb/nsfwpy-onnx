@@ -1,10 +1,11 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="nsfwpy",
-    version="1.0.0",
+    name="nsfwpy-onnx",
+    version="1.0.1",
     description="Python 3.14 CPU-optimized ultra-lightweight NSFWPY image classification library",
-    author="Infinite Red & Python Port",
+    author="expertskb",
+    url="https://github.com/expertskb/nsfwpy-onnx",
     packages=find_packages(),
     include_package_data=True,
     python_requires=">=3.10",

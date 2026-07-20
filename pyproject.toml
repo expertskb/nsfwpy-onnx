@@ -3,15 +3,15 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "nsfwpy"
-version = "1.0.0"
+name = "nsfwpy-onnx"
+version = "1.0.1"
 description = "Python 3.14 CPU-optimized ultra-lightweight NSFWPY image classification library"
 readme = "README.md"
 requires-python = ">=3.10"
 license = "MIT"
 keywords = ["nsfw", "nsfwjs", "onnx", "image-classification", "safety", "ai"]
 authors = [
-    { name = "Infinite Red & Python Port" }
+    { name = "expertskb" }
 ]
 classifiers = [
     "Programming Language :: Python :: 3",
@@ -25,6 +25,11 @@ dependencies = [
     "onnxruntime>=1.16.0",
     "click>=8.0.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/expertskb/nsfwpy-onnx"
+Repository = "https://github.com/expertskb/nsfwpy-onnx"
+"Bug Tracker" = "https://github.com/expertskb/nsfwpy-onnx/issues"
 
 [project.scripts]
 nsfwpy = "nsfwpy.cli:main"
