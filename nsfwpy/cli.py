@@ -6,12 +6,13 @@ import json
 import click
 from pathlib import Path
 
+from . import __version__
 from .core import load_model
 from .constants import DEFAULT_MODEL_PATHS
 
 
 @click.group()
-@click.version_option(version="1.0.0", prog_name="nsfwpy")
+@click.version_option(version=__version__, prog_name="nsfwpy")
 def main():
     """NSFWPY CLI - High performance CPU-optimized NSFW image classification engine."""
     pass

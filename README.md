@@ -1,6 +1,6 @@
-# NSFWPY 🔥 (`nsfwpy-onnx`)
+# NSFWPY 🔥 (`nsfwpy-onnx` v1.1.1)
 
-[![PyPI Version](https://img.shields.io/pypi/v/nsfwpy-onnx?color=blue&label=PyPI%20version)](https://pypi.org/project/nsfwpy-onnx/)
+[![PyPI Version](https://img.shields.io/pypi/v/nsfwpy-onnx?color=blue&label=PyPI%20version%201.1.1)](https://pypi.org/project/nsfwpy-onnx/)
 [![PyPI Downloads](https://img.shields.io/pypi/dm/nsfwpy-onnx?color=green)](https://pypi.org/project/nsfwpy-onnx/)
 [![GitHub Repo](https://img.shields.io/badge/GitHub-expertskb%2Fnsfwpy--onnx-blue?logo=github)](https://github.com/expertskb/nsfwpy-onnx)
 [![Python Version](https://img.shields.io/badge/python-3.10%20%7C%203.14-blue)](https://www.python.org/)
